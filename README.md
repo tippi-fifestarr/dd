@@ -1,7 +1,8 @@
 # DaDeuce!
-![image](https://user-images.githubusercontent.com/62179036/225209391-15e4d6ae-06e9-4a71-9d9c-2d7f95dfbc5e.png)
+Responsive Screenshot, bro.
+[<img src="https://user-images.githubusercontent.com/62179036/225210460-d8238523-914c-46f7-a4c7-0bb162a0a8dd.png" width="105"/>](https://user-images.githubusercontent.com/62179036/225210460-d8238523-914c-46f7-a4c7-0bb162a0a8dd.png)
 
-This repository serves as the foundation, with special thanks to @developedbyed for the tailwind and nextjs powerup.
+This repository serves as the foundation, with special thanks to [@developedbyed](https://www.youtube.com/watch?v=T63nY70eZF0) for the tailwind and nextjs powerup.
 
 https://developers.themoviedb.org/3/getting-started/introduction
 
