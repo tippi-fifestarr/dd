@@ -1,6 +1,33 @@
+# DaDeuce!
+
+This repository serves as the foundation, with special thanks to @developedbyed for the tailwind and nextjs powerup.
+
+https://developers.themoviedb.org/3/getting-started/introduction
+
+## Todo
+
+- [x] layout header, tips, game board, and footer
+- [ ] add detailed view
+- [ ] add zoom fullscreen view
+- [ ] Click to flip / eliminate cards
+- [ ] Add music onload
+- [ ] Sound toggle
+- [ ] Contact page
+- [ ] GPT kickstart page
+- [ ] 5 step img2img "having fun" chosen card?
+- [ ] Matches or improves the design
+- [ ] Create all the 25 cards
+- [x] Use Next/fonts the right way
+- [x] Movie Database API
+
+## NextJS
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+
+**check env.sample and rename to .env.local**
+Get an API key from TMDB to enable this version of the app.
 
 First, run the development server:
 
@@ -36,3 +63,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+# Lyrics
+
+We got what it takes
+
+To make it through the gates
+
+We don't need sleep --
+
+Just DaDeuce and drum breaks...
+
+...Dirty beats...style sheets
+
+Game so sleek, it kicks like sneakers on repeat...
+
+On repeat... on repeat...
