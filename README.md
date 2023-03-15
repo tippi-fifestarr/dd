@@ -1,4 +1,5 @@
 # DaDeuce!
+![image](https://user-images.githubusercontent.com/62179036/225209391-15e4d6ae-06e9-4a71-9d9c-2d7f95dfbc5e.png)
 
 This repository serves as the foundation, with special thanks to @developedbyed for the tailwind and nextjs powerup.
 
