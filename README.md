@@ -1,4 +1,5 @@
 # DaDeuce!
+
 Responsive Screenshot, bro.
 [<img src="https://user-images.githubusercontent.com/62179036/225210460-d8238523-914c-46f7-a4c7-0bb162a0a8dd.png" width="105"/>](https://user-images.githubusercontent.com/62179036/225210460-d8238523-914c-46f7-a4c7-0bb162a0a8dd.png)
 
@@ -9,9 +10,9 @@ https://developers.themoviedb.org/3/getting-started/introduction
 ## Todo
 
 - [x] layout header, tips, game board, and footer
-- [ ] add detailed view
+- [x] add detailed view
 - [ ] add zoom fullscreen view
-- [ ] Click to flip / eliminate cards
+- [x] Click to flip / eliminate cards
 - [ ] Add music onload
 - [ ] Sound toggle
 - [ ] Contact page

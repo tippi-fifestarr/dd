@@ -14,9 +14,6 @@ module.exports = {
         islandMoments: ["var(--font-island-moments)"],
         inter: ["var(--font-inter)"],
       },
-      gridTemplateColumns: {
-        fluid: "repeat(auto-fit,minmax(15rem,1fr))",
-      },
     },
   },
   plugins: [],

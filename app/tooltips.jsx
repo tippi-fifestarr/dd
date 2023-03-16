@@ -6,7 +6,7 @@ export default async function Tooltips() {
   const res = await data.json();
   return (
     <div
-      className={`bg-slate-200 bg-opacity-20 rounded-full items-center text-center p-1 gap-2`}
+      className={`bg-slate-200 bg-opacity-20 rounded-full items-center text-center p-1 mx-4 gap-2 m-1`}
     >
       {/* <h1 className="font-inter"> - make the tooltips :star_struck: 🤩 </h1> */}
       <div className={`text-xl text-slate-200`}>

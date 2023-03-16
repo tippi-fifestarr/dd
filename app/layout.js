@@ -1,5 +1,6 @@
 import "./globals.css";
 import Image from "next/image";
+import Head from "./head";
 import {
   Inter,
   Gorditas,
@@ -38,18 +39,18 @@ export const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head />
+      <Head />
 
       <body className="bg-slate-800">
         <nav className="border-solid bg-slate-500 rounded text-slate-100">
-          <div className="flex justify-center space-x-5 justify-between m-5 object-none">
+          <div className="flex space-x-5 justify-between items-center mx-5 mb-2 object-none">
             {/* <Image src= /> */}
             <Image
               src="/favicondd.ico"
               alt="dadeuce favicon"
               width={55}
               height={55}
-              className="rounded-full items-center"
+              className="rounded-full items-center p-1"
             />
             <h1
               className={`text-2xl ${gorditas.className} font-bold hover:underline`}
@@ -61,14 +62,15 @@ export default function RootLayout({ children }) {
               alt="dadeuce logo"
               width={55}
               height={55}
+              className="rounded items-center p-2"
             />
           </div>
         </nav>
         {children}
-        <footer className="bg-slate-500 text-slate-100 my-2 text-center container transition-colors duration-200">
+        <footer className="my-2 text-center transition-colors duration-200">
           <div className="">
             <ul className="flex flex-row justify-between px-5 sm:text-xl">
-              <li className="font-oswald flex ">
+              <li className="flex">
                 <a className="text-blue-200" href="/">
                   Home
                 </a>
@@ -85,16 +87,16 @@ export default function RootLayout({ children }) {
             </ul>
           </div>
           <div className="flex flex-row justify-around">
-            <button className="z-10 text-slate-200 bg-slate-300 rounded-lg hover:bg-slate-200 transition-colors duration-200 p-1">
+            <button className="z-10 text-slate-100 bg-slate-400 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
               Zoom selection on/off 👓
             </button>
-            <button className="z-10 text-slate-200 bg-slate-400 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
+            <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
               Help Tips! 🤩
             </button>
-            <button className="z-10 text-slate-100 bg-slate-200 rounded-lg p-1">
+            <button className="z-10 text-slate-100 bg-slate-400 rounded-lg hover:bg-slate-300 p-1">
               Music on/off 🎵
             </button>
-            <button className="z-10 text-slate-200 bg-slate-400 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
+            <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
               Sound on/off 🔈
             </button>
           </div>
