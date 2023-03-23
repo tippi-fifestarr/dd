@@ -152,7 +152,6 @@ export default function Cards() {
             {people.map((person) => (
               <div className="m-1">
                 <Person
-                  className="flex gap-2"
                   // onClick={() => {
                   //   setChosenCard(person);
                   //   console.log("hello", chosenCard);

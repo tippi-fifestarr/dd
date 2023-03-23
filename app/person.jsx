@@ -40,17 +40,17 @@ export default function Person({
     console.log("double clicked!: ", name, known_for);
   };
   return (
-    <div className="h-20 w-20">
+    <div className="bg-slate-700 bg-opacity-30 justify-around">
       {/* <h1>{name}</h1> */}
       {/* <p>oh, from {known_for}, right?</p> */}
       {/* <Link className="relative h-16" href={`/about`}> */}
-      <div className="relative h-16">
+      <div className="relative flex align-middle justify-center">
         <Image
           src={image}
           alt={`image of ${name}`}
-          width={55}
-          height={55}
-          className={`rounded-full items-center focus:outline-none focus:ring focus:ring-violet-300 hover:border-solid active:border-red-700  hover:border-2 duration-500 ${
+          width={50}
+          height={50}
+          className={`flex object-center rounded-full focus:outline-none focus:ring focus:ring-violet-300 hover:border-solid active:border-red-700  hover:border-2 duration-500 ${
             dblClicked ? "blur-sm" : ""
           } ${cardClicked ? "border-3 rounded-2xl" : ""}`}
           onClick={(e) => cardClickHandler()}
