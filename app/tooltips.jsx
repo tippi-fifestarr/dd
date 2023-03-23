@@ -6,10 +6,10 @@ export default async function Tooltips() {
   const res = await data.json();
   return (
     <div
-      className={`bg-slate-200 bg-opacity-20 rounded-full items-center text-center p-1 mx-4 gap-2 m-1`}
+      className={`bg-slate-200 bg-opacity-20 rounded-xl items-center text-center p-1 mx-4 gap-2 m-1`}
     >
       {/* <h1 className="font-inter"> - make the tooltips :star_struck: 🤩 </h1> */}
-      <div className={`text-xl text-slate-200`}>
+      <div className={`text-sm md:text-xl text-slate-200 p-1`}>
         ❤️‍🔥 {res.results[0].name} is really hot right now for{" "}
         {res.results[0].known_for_department.toLowerCase()} in{" "}
         {res.results[0].known_for[0].title
@@ -17,7 +17,7 @@ export default async function Tooltips() {
           : res.results[0].known_for[0].name}{" "}
         ❤️‍🔥
       </div>
-      <div className={`text-xl`}>
+      <div className={`text-sm md:text-xl p-1`}>
         {res.results[1].name} is almost as popular, for{" "}
         {res.results[1].known_for_department.toLowerCase()} the{" "}
         {res.results[1].known_for[0].title

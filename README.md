@@ -11,17 +11,20 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 - [x] layout header, tips, game board, and footer
 - [x] add detailed view
+- [ ] detailed view updates to selectedCard
 - [ ] add zoom fullscreen view
 - [x] Click to flip / eliminate cards
 - [ ] Add music onload
 - [ ] Sound toggle
 - [ ] Contact page
-- [ ] GPT kickstart page
-- [ ] 5 step img2img "having fun" chosen card?
-- [ ] Matches or improves the design
-- [ ] Create all the 25 cards
+- [ ] GPT kickstart page (web3 donate button)
+- [ ] Create all the 25 cards in DaDeuce Deck
+- [ ] responsive tooltips
+- [ ] Allow user choice (by navigating to page) of two "Decks"
 - [x] Use Next/fonts the right way
 - [x] Movie Database API
+- [ ] Matches or improves the design
+- [ ] 5 step img2img "having fun" chosen card?
 
 ## NextJS
 

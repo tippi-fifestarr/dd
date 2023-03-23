@@ -5,11 +5,14 @@ import Image from "next/image";
 
 // export default async function Cards() {
 export default function Cards() {
+  // this is what's breaking it, sincie
   const [chosenCard, setChosenCard] = useState({});
+
   const [people, setPeople] = useState([]);
   const [gotPeople, setGotPeople] = useState(false);
   const [cardChosen, setCardChosen] = useState(false);
 
+  let person = {};
   //   const config = await fetch(
   //     `https://api.themoviedb.org/3/configuration?api_key=${process.env.TMDB_API_KEY}`
   //   );
@@ -31,12 +34,25 @@ export default function Cards() {
     return res;
   };
 
+  const handleClick = (person) => {
+    console.log(person);
+    setChosenCard(person);
+    setCardChosen(true);
+    console.log(cardChosen);
+    console.log("chosen card: ", chosenCard);
+  };
+
   useEffect(() => {
+    console.log("people effect: ", people);
     asyncFetch().then((res) => {
+      console.log("people: ", people);
       setPeople(res.results);
-      console.log(people);
     });
   }, []);
+
+  useEffect(() => {
+    console.log("chosen card effect: ", chosenCard);
+  }, [chosenCard]);
 
   //   console.log(res);
 
@@ -45,7 +61,9 @@ export default function Cards() {
 
   // update the hero image to show clicked
   return (
-    // map through the res and return 25 names
+    // cards element is the parent of the card detail and the card grid
+    // cards begins with a div
+
     !gotPeople ? (
       <div>placeholder {asyncFetch}</div>
     ) : !cardChosen ? (
@@ -55,14 +73,15 @@ export default function Cards() {
           <Image
             src={imagePath + people[0].profile_path}
             // src={chosenCard} // image of selected card
-            alt={`image of ${people[0].name}`}
+            alt={`image of ${people[0].name} who is known for ${people[0].known_for[0].name}`}
             className="object-contain rounded-md"
             height={128}
             width={128}
           />
 
           <div className="flex relative gap-2 border-red-500 rounded-md p-1 bg-red-200">
-            You've clicked on {people[0].name}
+            You've clicked on {people[0].name} who is known for{" "}
+            {people[0].known_for[0].name}
           </div>
         </div>
 
@@ -71,19 +90,17 @@ export default function Cards() {
             {people.map((person) => (
               <div className="m-1">
                 <Person
+                  handleClick={handleClick}
                   className="flex gap-2"
-                  onClick={() => {
-                    setCardChosen(true);
-                    setChosenCard(person);
-                    console.log("hello", chosenCard);
-                  }}
-                  name={person.name}
-                  known_for={
-                    person.known_for[0].name
-                      ? person.known_for[0].name
-                      : person.known_for[0].title
-                  }
-                  profile_path={person.profile_path}
+                  person={person}
+                  setChosenCard={setChosenCard}
+                  // name={person.name}
+                  // known_for={
+                  //   person.known_for[0].name
+                  //     ? person.known_for[0].name
+                  //     : person.known_for[0].title
+                  // }
+                  // profile_path={person.profile_path}
                   imagePath={imagePath}
                 />
               </div>
@@ -119,13 +136,16 @@ export default function Cards() {
                     setChosenCard(person);
                     console.log("hello", chosenCard);
                   }}
-                  name={person.name}
-                  known_for={
-                    person.known_for[0].name
-                      ? person.known_for[0].name
-                      : person.known_for[0].title
-                  }
-                  profile_path={person.profile_path}
+                  handleClick={handleClick}
+                  person={person}
+                  setChosenCard={setChosenCard}
+                  // name={person.name}
+                  // known_for={
+                  //   person.known_for[0].name
+                  //     ? person.known_for[0].name
+                  //     : person.known_for[0].title
+                  // }
+                  // profile_path={person.profile_path}
                   imagePath={imagePath}
                 />
               </div>
