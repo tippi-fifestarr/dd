@@ -7,12 +7,13 @@ import Image from "next/image";
 export default function Cards() {
   // this is what's breaking it, sincie
   const [chosenCard, setChosenCard] = useState({});
-
+  const [selectedCard, setSelectedCard] = useState({});
+  const [cardSelected, setCardSelected] = useState(false);
   const [people, setPeople] = useState([]);
   const [gotPeople, setGotPeople] = useState(false);
   const [cardChosen, setCardChosen] = useState(false);
 
-  let person = {};
+  // let person = {};
   //   const config = await fetch(
   //     `https://api.themoviedb.org/3/configuration?api_key=${process.env.TMDB_API_KEY}`
   //   );
@@ -35,12 +36,24 @@ export default function Cards() {
   };
 
   const handleClick = (person) => {
-    console.log(person);
+    console.log("single clicked ", person);
+    // setChosenCard(person);
+    // setCardChosen(true);
+    setSelectedCard(person);
+    setCardSelected(true);
+    console.log("selected card: ", selectedCard);
+    // console.log(cardChosen);
+    // console.log("chosen card: ", chosenCard);
+  };
+
+  const handleDoubleClick = (person) => {
+    console.log("double clicked ", person);
     setChosenCard(person);
     setCardChosen(true);
-    console.log(cardChosen);
-    console.log("chosen card: ", chosenCard);
   };
+  // selectedCard on single click for display in hero details
+  // chosenCard on double click for display in the logo, chosenCard happens only once at the beginning
+  // flippedCards is an array of cards that have been flipped, and should be hidden, when there is two remaining, update tooltips
 
   useEffect(() => {
     console.log("people effect: ", people);
@@ -49,6 +62,10 @@ export default function Cards() {
       setPeople(res.results);
     });
   }, []);
+
+  useEffect(() => {
+    console.log("selected card effect: ", selectedCard);
+  }, [selectedCard]);
 
   useEffect(() => {
     console.log("chosen card effect: ", chosenCard);
@@ -66,9 +83,9 @@ export default function Cards() {
 
     !gotPeople ? (
       <div>placeholder {asyncFetch}</div>
-    ) : !cardChosen ? (
+    ) : !cardSelected ? (
       <div className="flex flex-col">
-        {/* display details of selected card, larger image, person name, knownfor */}
+        {/* display details of selected card, larger image, person name, knownfor, other stats */}
         <div className="relative flex justify-center border-2 border-slate-400 rounded-xl p-2 gap-20 my-1 mx-5">
           <Image
             src={imagePath + people[0].profile_path}
@@ -91,6 +108,7 @@ export default function Cards() {
               <div className="m-1">
                 <Person
                   handleClick={handleClick}
+                  handleDoubleClick={handleDoubleClick}
                   className="flex gap-2"
                   person={person}
                   setChosenCard={setChosenCard}
@@ -110,19 +128,22 @@ export default function Cards() {
       </div>
     ) : (
       <div className="flex flex-col">
-        {/* display details of selected card, larger image, person name, knownfor */}
+        {/* this renders only after a card has been chosen */}
         <div className="relative flex justify-center border-2 border-slate-400 rounded-xl p-2 gap-20 my-1 mx-5">
           <Image
-            src={imagePath + chosenCard.profile_path}
+            src={imagePath + selectedCard.profile_path}
             // src={chosenCard} // image of selected card
-            alt={`image of ${chosenCard.name}`}
+            alt={`image of ${selectedCard.name} who is known for ${selectedCard.known_for[0].name}`}
             className="object-contain rounded-md"
             height={128}
             width={128}
           />
 
           <div className="flex relative gap-2 border-red-500 rounded-md p-1 bg-red-200">
-            You've clicked on {people[0].name}
+            You've clicked on {selectedCard.name} who is known for{" "}
+            {selectedCard.known_for[0].name
+              ? selectedCard.known_for[0].name
+              : selectedCard.known_for[0].title}
           </div>
         </div>
 
@@ -132,11 +153,12 @@ export default function Cards() {
               <div className="m-1">
                 <Person
                   className="flex gap-2"
-                  onClick={() => {
-                    setChosenCard(person);
-                    console.log("hello", chosenCard);
-                  }}
+                  // onClick={() => {
+                  //   setChosenCard(person);
+                  //   console.log("hello", chosenCard);
+                  // }}
                   handleClick={handleClick}
+                  handleDoubleClick={handleDoubleClick}
                   person={person}
                   setChosenCard={setChosenCard}
                   // name={person.name}
