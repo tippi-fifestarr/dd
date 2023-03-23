@@ -2,6 +2,7 @@
 import "./globals.css";
 import Image from "next/image";
 import Head from "./head";
+import Nav from "./nav";
 import {
   Inter,
   Gorditas,
@@ -43,46 +44,33 @@ export default function RootLayout({ children }) {
       <Head />
 
       <body className="bg-slate-800">
-        <nav className="border-solid bg-slate-500 rounded text-slate-100">
-          <div className="flex space-x-5 justify-between items-center mx-5 mb-2 object-none">
-            {/* <Image src= /> */}
-            <Image
-              src="/favicondd.ico"
-              alt="dadeuce favicon"
-              width={55}
-              height={55}
-              className="rounded-full items-center p-1"
-            />
-            <h1
-              className={`text-2xl ${gorditas.className} font-bold hover:underline`}
-            >
-              DaDeuce!?
-            </h1>
-            <Image
-              src="/images/dadeuce.png"
-              alt="dadeuce logo"
-              width={55}
-              height={55}
-              className="rounded items-center p-2"
-            />
-          </div>
-        </nav>
+        <Nav />
         {children}
         <footer className="my-2 text-center transition-colors duration-200">
           <div className="">
             <ul className="flex flex-row justify-between px-5 sm:text-xl">
               <li className="flex">
-                <a className="text-blue-200" href="/">
+                <a className="text-blue-200 hover:bg-blue-600" href="/">
                   Home
                 </a>
               </li>
-              <li className={gorditas.className + " flex"}>
+              <li
+                className={
+                  gorditas.className + " text-slate-300 hover:bg-slate-500 flex"
+                }
+              >
                 <a href="/about">About</a>
               </li>
-              <li className={`${islandMoments.className}  hover:bg-slate-800`}>
+              <li
+                className={`${islandMoments.className} text-slate-300  hover:bg-slate-600 text-2xl`}
+              >
                 <a href="/contact">Contact</a>
               </li>
-              <li className={frijole.className + " flex"}>
+              <li
+                className={
+                  frijole.className + " flex text-slate-300 hover:bg-slate-700"
+                }
+              >
                 <a href="/kickstart">Kickstart</a>
               </li>
             </ul>

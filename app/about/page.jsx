@@ -11,7 +11,7 @@ export default function About() {
   return (
     <div>
       <h1>About Page</h1>
-      <p className={`${inter.className}`}>
+      <p className={`${inter.className} text-slate-200`}>
         Page is a girl, somebody that has a funny story to tell about me.
       </p>
     </div>
