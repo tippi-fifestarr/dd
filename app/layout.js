@@ -14,6 +14,8 @@ import {
 // use context to keep track of which card was doubleClicked, and which card is currently selected
 import AppContext from "./appContext";
 import MusicPlayer from "./musicplayer";
+import HelpTips from "./helpTips";
+import ZoomSelection from "./zoomSelection";
 
 export const gorditas = Gorditas({
   subsets: ["latin"],
@@ -82,12 +84,8 @@ export default function RootLayout({ children }) {
             </ul>
           </div>
           <div className="flex flex-row justify-around">
-            <button className="z-10 text-slate-100 bg-slate-400 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
-              Zoom selection on/off 👓
-            </button>
-            <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
-              Help Tips! 🤩
-            </button>
+            <ZoomSelection />
+            <HelpTips />
             <MusicPlayer src="/music/frozen.mp3" />
             <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
               Sound on/off 🔈

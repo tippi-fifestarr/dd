@@ -8,8 +8,6 @@ import Link from "next/link";
 export default function Cards() {
   // this is what's breaking it, sincie
   const [chosenCard, setChosenCard] = useState({});
-  const [selectedCard, setSelectedCard] = useState({});
-  const [cardSelected, setCardSelected] = useState(false);
   const [people, setPeople] = useState([]);
   const [gotPeople, setGotPeople] = useState(false);
   const [cardChosen, setCardChosen] = useState(false);
@@ -38,13 +36,6 @@ export default function Cards() {
 
   const handleClick = (person) => {
     console.log("single clicked ", person);
-    // setChosenCard(person);
-    // setCardChosen(true);
-    setSelectedCard(person);
-    setCardSelected(true);
-    console.log("selected card: ", selectedCard);
-    // console.log(cardChosen);
-    // console.log("chosen card: ", chosenCard);
   };
 
   const handleDoubleClick = (person) => {
@@ -65,10 +56,6 @@ export default function Cards() {
   }, []);
 
   useEffect(() => {
-    console.log("selected card effect: ", selectedCard);
-  }, [selectedCard]);
-
-  useEffect(() => {
     console.log("chosen card effect: ", chosenCard);
   }, [chosenCard]);
 
@@ -84,95 +71,25 @@ export default function Cards() {
 
     !gotPeople ? (
       <div>placeholder {asyncFetch}</div>
-    ) : !cardSelected ? (
+    ) : (
       <div className="flex flex-col">
-        {/* display details of selected card, larger image, person name, knownfor, other stats */}
-        <div className="relative flex justify-center border-2 border-slate-400 rounded-xl p-2 gap-20 my-1 mx-5">
-          <Image
-            src={imagePath + people[0].profile_path}
-            // src={chosenCard} // image of selected card
-            alt={`image of ${people[0].name} who is known for ${people[0].known_for[0].name}`}
-            className="object-contain rounded-md"
-            height={128}
-            width={128}
-          />
-
-          <div className="flex relative gap-2 border-red-500 rounded-md p-1 bg-red-200">
-            You've clicked on {people[0].name} who is known for{" "}
-            {people[0].known_for[0].name}
-          </div>
-        </div>
-
         <div className="border-slate-200 border-2 rounded-lg px-5 mx-5">
           <div className="grid grid-cols-5">
             {people.map((person) => (
-              <div className="m-1">
+              <div className="m-1 p-0.5 rounded-md bg-green-300 w-24 h-24 text-xs content-center">
                 {/* <Link href="/contact/[id]" as={`/contact/${person.id}`}> */}
-                <Link href={`/contact/${person.id}`}>
+                <Link href={`/contact/${person.id}`} className="bg-green-300">
                   <Person
                     handleClick={handleClick}
                     handleDoubleClick={handleDoubleClick}
-                    className="flex gap-2"
                     person={person}
                     setChosenCard={setChosenCard}
-                    // name={person.name}
-                    // known_for={
-                    //   person.known_for[0].name
-                    //     ? person.known_for[0].name
-                    //     : person.known_for[0].title
-                    // }
-                    // profile_path={person.profile_path}
                     imagePath={imagePath}
                   />
+                  <div className="text-xs mx-1 text-center object-contain truncate">
+                    {person.name}
+                  </div>
                 </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    ) : (
-      <div className="flex flex-col">
-        {/* this renders only after a card has been chosen */}
-        <div className="relative flex justify-center border-2 border-slate-400 rounded-xl p-2 gap-20 my-1 mx-5">
-          <Image
-            src={imagePath + selectedCard.profile_path}
-            // src={chosenCard} // image of selected card
-            alt={`image of ${selectedCard.name} who is known for ${selectedCard.known_for[0].name}`}
-            className="object-contain rounded-md"
-            height={128}
-            width={128}
-          />
-
-          <div className="flex relative gap-2 border-red-500 rounded-md p-1 bg-red-200">
-            You've clicked on {selectedCard.name} who is known for{" "}
-            {selectedCard.known_for[0].name
-              ? selectedCard.known_for[0].name
-              : selectedCard.known_for[0].title}
-          </div>
-        </div>
-
-        <div className="border-slate-200 border-2 rounded-lg px-5 mx-5">
-          <div className="grid grid-cols-5">
-            {people.map((person) => (
-              <div className="m-1">
-                <Person
-                  // onClick={() => {
-                  //   setChosenCard(person);
-                  //   console.log("hello", chosenCard);
-                  // }}
-                  handleClick={handleClick}
-                  handleDoubleClick={handleDoubleClick}
-                  person={person}
-                  setChosenCard={setChosenCard}
-                  // name={person.name}
-                  // known_for={
-                  //   person.known_for[0].name
-                  //     ? person.known_for[0].name
-                  //     : person.known_for[0].title
-                  // }
-                  // profile_path={person.profile_path}
-                  imagePath={imagePath}
-                />
               </div>
             ))}
           </div>

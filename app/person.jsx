@@ -50,9 +50,9 @@ export default function Person({
           alt={`image of ${name}`}
           width={50}
           height={50}
-          className={`flex object-center rounded-full focus:outline-none focus:ring focus:ring-violet-300 hover:border-solid active:border-red-700  hover:border-2 duration-500 ${
+          className={`flex my-0.5 object-center rounded-3xl focus:outline-none focus:ring focus:ring-violet-300 hover:border-solid active:border-red-700  hover:border-2 duration-500 ${
             dblClicked ? "blur-sm" : ""
-          } ${cardClicked ? "border-3 rounded-2xl" : ""}`}
+          }`}
           onClick={(e) => cardClickHandler()}
           onDoubleClick={(e) => doubleClickHandler(e)}
         />
