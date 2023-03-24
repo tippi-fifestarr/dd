@@ -3,6 +3,7 @@ import "./globals.css";
 import Image from "next/image";
 import Head from "./head";
 import Nav from "./nav";
+
 import {
   Inter,
   Gorditas,
@@ -10,6 +11,9 @@ import {
   Frijole,
   Island_Moments,
 } from "next/font/google";
+// use context to keep track of which card was doubleClicked, and which card is currently selected
+import AppContext from "./appContext";
+import MusicPlayer from "./musicplayer";
 
 export const gorditas = Gorditas({
   subsets: ["latin"],
@@ -37,6 +41,8 @@ export const islandMoments = Island_Moments({
 });
 
 export const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+const song1 = "./music/frozen.mp3";
 
 export default function RootLayout({ children }) {
   return (
@@ -82,9 +88,7 @@ export default function RootLayout({ children }) {
             <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
               Help Tips! 🤩
             </button>
-            <button className="z-10 text-slate-100 bg-slate-400 rounded-lg hover:bg-slate-300 p-1">
-              Music on/off 🎵
-            </button>
+            <MusicPlayer src="/music/frozen.mp3" />
             <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
               Sound on/off 🔈
             </button>
