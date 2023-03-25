@@ -8,9 +8,9 @@ export default function CardDetail(selectedCard) {
         <Image
           src={selectedCard.url}
           alt={`image of ${selectedCard.name}`}
-          className="object-contain rounded-md"
-          height={128}
-          width={128}
+          className="object-contain rounded-md w-full lg:w-24"
+          height={1000}
+          width={1000}
         />
         {/* card metadata */}
         <div className="flex relative gap-2 border-red-500 rounded-md p-1 bg-red-200">

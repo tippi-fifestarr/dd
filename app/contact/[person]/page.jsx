@@ -12,7 +12,7 @@ export default async function ContactPerson({ params }) {
   return (
     <div className="p-2">
       <h1 className="text-2xl text-slate-200 m-2 p-2 bg-slate-600 rounded-md">
-        {res.name}... AKA {res.also_known_as[0]}
+        {res.name}...
         {res.also_known_as.map((aka) => {
           return " aka " + aka;
         })}

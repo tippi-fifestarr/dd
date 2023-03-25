@@ -76,9 +76,12 @@ export default function Cards() {
         <div className="border-slate-200 border-2 rounded-lg px-5 mx-5">
           <div className="grid grid-cols-5">
             {people.map((person) => (
-              <div className="m-1 p-0.5 rounded-md bg-green-300 w-24 h-24 text-xs content-center">
+              <div className="m-1 p-0.5 rounded-md bg-green-300 w-full text-xs content-center">
                 {/* <Link href="/contact/[id]" as={`/contact/${person.id}`}> */}
-                <Link href={`/contact/${person.id}`} className="bg-green-300">
+                <Link
+                  href={`/contact/${person.id}`}
+                  className="bg-green-300 bg-opacity-30"
+                >
                   <Person
                     handleClick={handleClick}
                     handleDoubleClick={handleDoubleClick}
