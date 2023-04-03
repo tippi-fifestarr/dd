@@ -48,10 +48,19 @@ export default function Cards({ chosenCard, setChosenCard }) {
     // console.log("chosen card: ", chosenCard);
   };
 
-  const handleDoubleClick = (person) => {
-    console.log("double clicked ", person);
+  const cardChooser = (person) => {
+    console.log("cardChooser: ", person);
     setChosenCard(person);
     setCardChosen(true);
+  };
+
+  const handleDoubleClick = (person) => {
+    console.log("double clicked ", person);
+    !cardChosen
+      ? cardChooser(person)
+      : cardChosen
+      ? console.log("card already chosen")
+      : null;
   };
   // selectedCard on single click for display in hero details
   // chosenCard on double click for display in the logo, chosenCard happens only once at the beginning
@@ -99,6 +108,7 @@ export default function Cards({ chosenCard, setChosenCard }) {
               (d)
             </div>
             <Tooltips
+              cardChosen={cardChosen}
               tips={[
                 "take turns asking yes/no questions to dadeuce!",
                 "eliminate by double clickin', player!",
