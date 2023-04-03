@@ -5,14 +5,15 @@ import Image from "next/image";
 import Tooltips from "./tooltips";
 
 // export default async function Cards() {
-export default function Cards() {
-  // this is what's breaking it, sincie
-  const [chosenCard, setChosenCard] = useState({});
+export default function Cards({ chosenCard, setChosenCard }) {
+  // this is what's breaking it, putting these into layout
+  // const [chosenCard, setChosenCard] = useState({});
+  const [cardChosen, setCardChosen] = useState(false);
+
   const [selectedCard, setSelectedCard] = useState({});
   const [cardSelected, setCardSelected] = useState(false);
   const [people, setPeople] = useState([]);
   const [gotPeople, setGotPeople] = useState(false);
-  const [cardChosen, setCardChosen] = useState(false);
 
   // let person = {};
   //   const config = await fetch(
@@ -87,14 +88,25 @@ export default function Cards() {
     ) : !cardSelected ? (
       <div className="flex flex-col">
         <div className="flex flex-col sm:flex-row p-0.5 justify-around">
-          <Tooltips
+          <div className="md:w-1/3 border-2 border-slate-300 rounded-xl p-1 m-1">
+            {" "}
+            <div
+              className="float-right text-slate-200 px-1 hover:text-slate-400 cursor-pointer"
+              onClick={() => {
+                alert("tooltips in progress ");
+              }}
+            >
+              (d)
+            </div>
+            <Tooltips
+              tips={[
+                "take turns asking yes/no questions to dadeuce!",
+                "eliminate by double clickin', player!",
+                "give me a tip, send to wingbird.eth",
+              ]}
+            />
+          </div>
 
-          // tips={[
-          //   "take turns asking yes/no questions to dadeuce!",
-          //   "eliminate by double clickin', player!",
-          //   "give me a tip, send to wingbird.eth",
-          // ]}
-          />
           <div className="relative flex justify-center border-2 border-slate-400 rounded-xl p-2 gap-1 p-1 my-1 mx-1">
             <Image
               src={imagePath + people[0].profile_path}
@@ -105,9 +117,9 @@ export default function Cards() {
               width={500}
             />
 
-            <div className="flex relative gap-2 border-red-500 rounded-md p-1 bg-red-200">
-              You've clicked on {people[0].name} who is known for{" "}
-              {people[0].known_for[0].name}
+            <div className="text-sm md:text-xl border-red-500 rounded-md p-1 bg-red-200">
+              You've clicked on <b> {people[0].name} </b> who is known for{" "}
+              <b>{people[0].known_for[0].name} </b>
             </div>
           </div>
         </div>
@@ -151,12 +163,19 @@ export default function Cards() {
               height={420}
               width={420}
             />
-
-            <div className="flex w-1/3 border-red-500 rounded-md p-1 bg-red-200">
-              You've clicked on {selectedCard.name} who is known for{" "}
-              {selectedCard.known_for[0].name
-                ? selectedCard.known_for[0].name
-                : selectedCard.known_for[0].title}
+            <div className="text-sm md:text-xl border-red-500 rounded-md p-1 bg-red-200">
+              You've clicked on <b> {selectedCard.name}, </b>{" "}
+              <b>
+                {" "}
+                {selectedCard.known_for[0].name
+                  ? selectedCard.known_for[0].name
+                  : selectedCard.known_for[0].title}
+              </b>{" "}
+              is something they are known for!
+              <div className="text-base">
+                {selectedCard.gender == "1" ? "Her" : "His"} popularity is{" "}
+                {selectedCard.popularity}
+              </div>
             </div>
           </div>
         </div>

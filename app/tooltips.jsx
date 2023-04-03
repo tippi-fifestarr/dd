@@ -13,16 +13,21 @@ export default function Tooltips(array) {
           <div>
             {tips.forEach((tip) => {
               <div
-                className={`text-xs sm:text-base md:text-xl lg:text-2xl text-slate-200 p-0.5 md:p-1 lg:p-2`}
+                className={`text-xs md:text-base lg:text-xl text-slate-200 p-0.5 md:p-1 lg:p-2`}
               >
                 <div>tip {tip + console.log(tip)}</div>
               </div>;
             })}
           </div>
           <div
-            className={`text-xs sm:text-base md:text-xl lg:text-2xl text-slate-200 p-0.5 md:p-1 lg:p-2`}
+            className={`text-xs md:text-base lg:text-xl text-slate-200 p-0.5 md:p-1 lg:p-2`}
           >
             🤩 double click to choose a card. begin! 🤩
+          </div>
+          <div
+            className={`text-xs md:text-base lg:text-xl text-slate-200 p-0.5 md:p-1 lg:p-2`}
+          >
+            😉 single click to view. check out "contact"! 🤩
           </div>
         </div>
       ) : (

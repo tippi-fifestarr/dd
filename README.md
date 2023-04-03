@@ -1,5 +1,24 @@
 # DaDeuce!
 
+Welcome to DaDeuce v1.9! Version 2.0 (with ecommerce?) and 3.0 (NFTs on mainnet!) coming soon.
+
+## How to Play
+
+1. Choose your card by double-clicking on one of the cards in the card section.
+1. Take turns asking yes or no questions to deduce which card your opponent has chosen.
+1. Double-click on any card to flip it and help you remember which cards you've eliminated and which are remaining.
+1. Guess your opponent's card before they guess yours.
+1. The game is over when someone correctly guesses their opponent's card, or is it? No! It's just the end of round one, and you won! But it's not end of the fun – in round two, you have to find out WHERE your opponent is, on their screen, like mental magic.
+1. After each round, you'll have the option to download a "match up card" with all the game details, join our mailing list, and even mint your match up as an NFT for access to DaDeuce 3.0 and other VIP community events. So why wait? Start playing DaDeuce now and see how far you can go!
+
+## Overview
+
+> Welcome to DaDeuce, the lightning-fast game that will keep you guessing and leave you wanting more! DaDeuce is a two-player game that's perfect for a nice break or as an icebreaker or team building game. It's designed to be fun, fast-paced, and engaging, so you can play a few rounds and then move on to other activities, or not!
+
+So what are you waiting for? Get ready to play DaDeuce and see if you have what it takes to come out on top!
+
+- "Tippi Fifestarr Wins! You guessed _Jack Black_ in 24 clicks, nice."
+
 Responsive Screenshot, bro.
 [<img src="https://user-images.githubusercontent.com/62179036/225210460-d8238523-914c-46f7-a4c7-0bb162a0a8dd.png" width="105"/>](https://user-images.githubusercontent.com/62179036/225210460-d8238523-914c-46f7-a4c7-0bb162a0a8dd.png)
 
@@ -12,28 +31,33 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] layout header, tips, game board, and footer
 - [x] add detailed view
 - [x] detailed view updates to selectedCard
-- [ ] add zoom fullscreen view
+- [ ] force the cards to be squares
+- [x] navbar logo replaced with chosen card
+- [x] add zoom fullscreen view (see contacts page)
 - [x] Click to flip / eliminate cards
-- [ ] Add music onload
-- [ ] Sound toggle
+- [ ] Add music onload with toggle
+- [ ] Sound fx toggle
 - [x] Contact page
 - [ ] GPT kickstart page (web3 donate button)
 - [ ] Create all the 25 cards in DaDeuce Deck
-- [ ] responsive tooltips
+- [x] responsive tooltips
+- [ ] tooltips know state of the users flow in game (crossing out and eventually replacing the tips to stay relevant)
 - [ ] Allow user choice (by navigating to page) of two "Decks"
 - [x] Use Next/fonts the right way
 - [x] Movie Database API
-- [ ] Matches or improves the design
-- [ ] 5 step img2img "having fun" chosen card?
+- [ ] Totally matches or improves the designs usability and delightfulness
+- [ ] 5 step img2img "having fun" or "winner" for the chosen card and "loser" for the guessed card?
+- [ ] Chat function / rooms
+- [ ] Play against chat gpt (chat function + ai)
 
 ## Weird Bugs and Questions
 
 1. sometimes the contacts page fetch gets stuck in an infinite loop, is it because of the useEffect dependency array?
 2. tooltips not showing up when passed as props
 3. whats the best way to organize this mess?
-4. having state items such as which card was chosen sent to navbar
-5. whats the best way to have the tooltips aware of certain state (has examined 2 cards, has chosen a card, has eliminated 3 cards, two cards remaining, last card)?
-6. music doesn't work
+4. whats the best way to have the tooltips aware of certain state (has examined 2 cards, has chosen a card, has eliminated 3 cards, clicks "give me a tip" link, two cards remaining, last card)?
+5. music doesn't work
+6. https://www.npmjs.com/package/eslint-plugin-react-hooks
 
 ## NextJS
 
@@ -94,3 +118,28 @@ Just DaDeuce and drum breaks...
 Game so sleek, it kicks like sneakers on repeat...
 
 On repeat... on repeat...
+
+## Cat Be Petey
+
+me:
+
+> Hi! I need your help like my new teammates. We are in a meeting where I am sharing my progress.
+> One is my CTO, a senior react developer who is familiar with NextJS and Tailwind. He will ask me to paste into here different sections of the code to help me debug. The other is my Chief Creative, who will give me general advice from her perspective, humorous encouragement, and also write a clear and engaging paragraph introduction for the landing page, and also write a "how to play" section of on-brand copy.
+
+> Here's me:
+> I'm building a game called DaDeuce. Right now it has a navbar with a logo in it that I want to update with the players chosen card in the first phase. So here's how it works now (later I will make the TMDB api call an easter egg):
+
+> page loads a navbar, tooltips section (struggling with giving this access to the state of the app correctly), and a responsive cards section. The top of the cards section is a detailed view of whichever card is selected (single click) and the bottom part is 20 of the top famous people in an api call to TMDB/people. It's just a placeholder for a set of wacky cards and their associated metadata that I'll put in as a final touch. At the bottom are some links to different pages, and below that is a few buttons like sound on, music on, detailed help, and zoom mode.
+
+> Any two people who want to play can just go to my site, and then on their phone or computer play with each other. They'll need to be in the same room, phone call, or whatever communication method they want. It's for friends or new friends to have fun together for a short time. First each player chooses a card by double-clicking one, and then they take turns asking yes no questions to deduce who the other player chose. They can double-click on any card to flip it, to help them remember which cards they've eliminated and which are remaining. At the end, when you've guessed their card (or just whenever there is only one card remaining), you'll get a modal pop-up that asks if you got it right (yes/no/i'm confused, three checkboxes), and lets them download a "match up card" with who they were, how many turns it took, and who they guessed. They can also choose to Mint this results page as an NFT, which will get them access to DaDeuce 3.0 and a special chat channel in our Discord and some VIP community events.
+
+> Right now I've got a responsive navbar with static logo, working details view (whatever they click shows up here, responsively), working card page (shuffles the cards randomly onto the page and double click flips the cards with a nice blur effect), and some basic links to a contact page and about page and kickstart page. At the very bottom are some buttons that don't quite work, I'll need help with that.
+
+Petey:
+
+**writes most of the text at the top of this readme**.
+Doesn't help with the coding yet, only the Creative offers help.
+
+Me: _pastes in the current to-do list and bugs and questions from this readme_
+
+Petey:
