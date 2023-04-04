@@ -12,21 +12,9 @@ export default function Cards() {
   const [gotPeople, setGotPeople] = useState(false);
   const [cardChosen, setCardChosen] = useState(false);
 
-  // let person = {};
-  //   const config = await fetch(
-  //     `https://api.themoviedb.org/3/configuration?api_key=${process.env.TMDB_API_KEY}`
-  //   );
-
-  //   const configo = await config.json();
-  //   console.log(configo.images.base_url);
-  //   const profSizes = configo.images.profile_sizes;
-  //   console.log(profSizes[1]);
-  //   const imagePath = `${configo.images.base_url}w185`;
   const imagePath = "http://image.tmdb.org/t/p/original";
   const asyncFetch = async () => {
-    // const peopleRequestPath = `https://api.themoviedb.org/3/person/popular?api_key=${process.env.TMDB_API_KEY}`;
-    const peopleRequestPath = `https://api.themoviedb.org/3/person/popular?api_key=a0ef4ba8ee3fbb16b31e963d0e8099e2`;
-
+    const peopleRequestPath = `https://api.themoviedb.org/3/person/popular?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`;
     const data = await fetch(peopleRequestPath);
     const res = await data.json();
     res.results = res.results.sort((a, b) => 0.5 - Math.random());
@@ -70,7 +58,9 @@ export default function Cards() {
     // cards begins with a div
 
     !gotPeople ? (
-      <div>placeholder {asyncFetch}</div>
+      <div className="text-slate-200 text-2xl">
+        Loading people... {asyncFetch}
+      </div>
     ) : (
       <div className="flex flex-col">
         <div className="border-slate-200 border-2 rounded-lg px-5 mx-5">

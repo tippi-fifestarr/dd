@@ -3,7 +3,7 @@ import { gorditas } from "./layout";
 import Image from "next/image";
 import { useEffect } from "react";
 
-export default function Nav({ chosenCard }) {
+export default function Nav({ chosenCard, selectCard }) {
   const imagePath = `http://image.tmdb.org/t/p/original`;
   ("");
   let image = imagePath + chosenCard.profile_path;
@@ -16,7 +16,7 @@ export default function Nav({ chosenCard }) {
   console.log(cardChosen);
   return (
     <nav className="border-solid bg-slate-500 rounded text-slate-100">
-      <div className="flex space-x-5 justify-between items-center mx-5 mb-2 h-14 object-none">
+      <div className="flex space-x-5 justify-between items-center mx-5 mb-2 h-14">
         {/* <Image src= /> */}
         {!cardChosen ? (
           <Image
@@ -27,13 +27,15 @@ export default function Nav({ chosenCard }) {
             className="rounded-full items-center p-1"
           />
         ) : cardChosen ? (
-          <Image
-            src={image}
-            alt="chosen card"
-            width={55}
-            height={55}
-            className="rounded-full items-center p-2"
-          />
+          <div className="overflow-hidden aspect-square h-14 p-1">
+            <Image
+              src={image}
+              alt={`chosen card ${chosenCard.name}`}
+              width={500}
+              height={500}
+              className="rounded-3xl w-full h-full object-cover"
+            />
+          </div>
         ) : (
           <div>
             what the heck is going on here? <br />

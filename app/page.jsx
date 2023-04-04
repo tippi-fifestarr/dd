@@ -7,8 +7,12 @@ import MusicPlayer from "./musicplayer";
 import HelpTips from "./helpTips";
 import ZoomSelection from "./zoomSelection";
 import { gorditas, oswald, frijole, islandMoments } from "./layout";
+import Tipsbox from "./tipsbox";
+import CardDetail from "./cardDetail";
 
 export default function Home() {
+  const [selectedCard, setSelectedCard] = useState({});
+  const [cardSelected, setCardSelected] = useState(false);
   const song1 = "./music/frozen.mp3";
 
   const [chosenCard, setChosenCard] = useState({
@@ -22,14 +26,40 @@ export default function Home() {
     console.log("chosenCard", chosenCard);
   }, [chosenCard.name]);
 
+  const tips = [
+    "take turns asking yes/no questions to dadeuce!",
+    "give me a tip, send to wingbird.eth",
+  ];
+
   return (
     <>
       <main>
         <Nav chosenCard={chosenCard} />
+        <div className="flex flex-col md:flex-row justify-center content-center items-center">
+          <div className="w-full">
+            <div className="border-2 border-slate-300 rounded-xl p-1 m-1">
+              {" "}
+              <div
+                className="float-right text-slate-200 px-1 hover:text-slate-400 cursor-pointer"
+                onClick={() => {
+                  alert("tooltips in progress ");
+                }}
+              >
+                (d)
+              </div>
+              <Tipsbox chosenCard={chosenCard} tips={tips} />
+            </div>
+          </div>
+          <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
+        </div>
         <Cards
           chosenCard={chosenCard}
           setChosenCard={setChosenCard}
           className="items-center"
+          selectedCard={selectedCard}
+          setSelectedCard={setSelectedCard}
+          cardSelected={cardSelected}
+          setCardSelected={setCardSelected}
         />
       </main>
       <footer className="my-2 text-center transition-colors duration-200">
