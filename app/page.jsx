@@ -3,18 +3,35 @@ import Nav from "./nav";
 // import Tooltips from "./tooltips";
 import Cards from "./cards";
 import { useState, useEffect } from "react";
-import MusicPlayer from "./musicplayer";
 import HelpTips from "./helpTips";
 import ZoomSelection from "./zoomSelection";
 import { gorditas, oswald, frijole, islandMoments } from "./layout";
 import Tipsbox from "./tipsbox";
 import CardDetail from "./cardDetail";
+import { Constants } from "./CONSTANTS";
+import Sound from "./sound";
+import StartModal from "./startModal";
 
 export default function Home() {
+  // music related state
+  const [selectedSongIndex, setSelectedSongIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const [sfxIndex, setSfxIndex] = useState(0);
+  const [volume, setVolume] = useState(0.69);
+
   const [selectedCard, setSelectedCard] = useState({});
   const [cardSelected, setCardSelected] = useState(false);
-  const song1 = "./music/frozen.mp3";
+  const [cardsRemaining, setCardsRemaining] = useState(20);
+  const [isNewLevel, setNewLevel] = useState(true);
+  const [currentLevel, setCurrentLevel] = useState(0);
+  const [totalClicks, setTotalClicks] = useState(0);
+  const [finalCard, setFinalCard] = useState({});
+  const [modalType, setModalType] = useState("start");
+  const [modalOpen, setModalOpen] = useState(true);
 
+  const songs = Constants.songs;
+
+  console.log(songs);
   const [chosenCard, setChosenCard] = useState({
     name: "none",
     id: 0,
@@ -26,17 +43,54 @@ export default function Home() {
     console.log("chosenCard", chosenCard);
   }, [chosenCard.name]);
 
+  const handleLevelComplete = (selectedCard) => {
+    console.log("level complete:", currentLevel);
+    setFinalCard(selectedCard);
+    resetCards();
+    setCurrentLevel(currentLevel + 1);
+    setSelectedSongIndex(selectedSongIndex + 1);
+    setCardsRemaining(20);
+  };
+
+  const resetCards = () => {
+    // reset the cards to the initial state
+    setNewLevel(true);
+    console.log("first");
+  };
+
+  useEffect(() => {
+    console.log("use effect new level?:", isNewLevel);
+  }, [isNewLevel]);
+
   const tips = [
-    "take turns asking yes/no questions to dadeuce!",
+    // "take turns asking yes/no questions to dadeuce!",
     "give me a tip, send to wingbird.eth",
   ];
 
+  // useEffect(() => {
+  //   document.title = `DaDeuce! ${totalClicks} | ${chosenCard.name} | ${cardsRemaining}`;
+  // }, [totalClicks]);
+
   return (
     <>
+      {/* <Heads totalClicks={totalClicks} /> */}
+
       <main>
-        <Nav chosenCard={chosenCard} />
+        <Nav
+          chosenCard={chosenCard}
+          isNewLevel={isNewLevel}
+          setNewLevel={setNewLevel}
+          isMuted={isMuted}
+          setIsMuted={setIsMuted}
+          selectedSongIndex={selectedSongIndex}
+          songs={songs}
+          sfxIndex={sfxIndex}
+          setSfxIndex={setSfxIndex}
+          volume={volume}
+        />
         <div className="flex flex-col md:flex-row justify-center content-center items-center">
-          <div className="w-full">
+          <div className="w-full h-full">
+            {/* <AudioPlayer /> */}
             <div className="border-2 border-slate-300 rounded-xl p-1 m-1">
               {" "}
               <div
@@ -47,7 +101,12 @@ export default function Home() {
               >
                 (d)
               </div>
-              <Tipsbox chosenCard={chosenCard} tips={tips} />
+              <Tipsbox
+                chosenCard={chosenCard}
+                tips={tips}
+                cardsRemaining={cardsRemaining}
+                finalCard={finalCard}
+              />
             </div>
           </div>
           <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
@@ -60,6 +119,16 @@ export default function Home() {
           setSelectedCard={setSelectedCard}
           cardSelected={cardSelected}
           setCardSelected={setCardSelected}
+          cardsRemaining={cardsRemaining}
+          setCardsRemaining={setCardsRemaining}
+          handleLevelComplete={handleLevelComplete}
+          totalClicks={totalClicks}
+          setTotalClicks={setTotalClicks}
+          isNewLevel={isNewLevel}
+          setNewLevel={setNewLevel}
+          setSfxIndex={setSfxIndex}
+          sfxIndex={sfxIndex}
+          volume={volume}
         />
       </main>
       <footer className="my-2 text-center transition-colors duration-200">
@@ -94,11 +163,24 @@ export default function Home() {
         <div className="flex flex-row justify-around">
           <ZoomSelection />
           <HelpTips />
-          <MusicPlayer src={song1} />
-          <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
-            Sound on/off 🔈
-          </button>
+          {/* <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
+            Sound on/off 🔈slider
+          </button> */}
+          <Sound
+            isMuted={isMuted}
+            setIsMuted={setIsMuted}
+            sfx={Constants.sfx[sfxIndex]}
+            volume={volume}
+            setVolume={setVolume}
+          />
         </div>
+        <StartModal
+          modalImage={"/images/dadeuce.png"}
+          setModalType={setModalType}
+          modalType={modalType}
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+        />
       </footer>
     </>
   );

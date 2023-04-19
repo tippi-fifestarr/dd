@@ -3,16 +3,14 @@ import Image from "next/image";
 import placeholder from "../public/images/dadeuce.png";
 
 export default function CardDetail({ selectedCard, cardSelected }) {
-  console.log("card detail: ", selectedCard);
-  console.log("card selected: ", cardSelected);
   // render the card detail
   let imagePath = "http://image.tmdb.org/t/p/original";
   return (
-    <div>
+    <div className="h-full">
       {/* display details of selected card, larger image, person name, knownfor, other stats */}
       {!cardSelected ? (
         <div className="flex flex-col sm:flex-row p-0.5 justify-around">
-          <div className="relative flex justify-center border-2 border-slate-400 rounded-xl p-2 gap-1 p-1 my-1 mx-1">
+          <div className="relative flex justify-center border-2 border-slate-400 rounded-xl p-1 m-1 gap-1 max-h-40">
             <Image
               src={placeholder}
               // src={chosenCard} // image of selected card
@@ -32,7 +30,7 @@ export default function CardDetail({ selectedCard, cardSelected }) {
       ) : cardSelected ? (
         <div className="flex flex-col sm:flex-row p-0.5 justify-around">
           {/* this renders only after a card has been selected */}
-          <div className="relative flex justify-around border-2 border-slate-400 rounded-xl p-1 gap-1 my-1 mx-2">
+          <div className="relative flex justify-around border-2 border-slate-400 rounded-xl p-1 gap-1 m-1 max-h-40">
             <Image
               src={imagePath + selectedCard.profile_path}
               // src={chosenCard} // image of selected card

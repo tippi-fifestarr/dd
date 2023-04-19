@@ -35,15 +35,16 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] navbar logo replaced with chosen card
 - [x] add zoom fullscreen view (see contacts page)
 - [x] Click to flip / eliminate cards
+- [x] start modal with instructions and button
 - [ ] Add music onload with toggle
-- [ ] Sound fx toggle
+- [x] Sound fx toggle
 - [x] Contact page
 - [ ] GPT kickstart page (web3 donate button)
 - [ ] Create all the 25 cards in DaDeuce Deck
 - [x] responsive tooltips
 - [x] tooltips know state of the users flow in game
 - [ ] (crossing out and eventually replacing the tips to stay relevant)
-- [ ] Allow user choice (by navigating to page) of two "Decks"
+- [ ] Allow user choice of two "Decks" (easter egg?) on start
 - [x] Use Next/fonts the right way
 - [x] Movie Database API
 - [ ] Totally matches or improves the designs usability and delightfulness
