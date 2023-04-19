@@ -91,22 +91,22 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-center content-center items-center">
           <div className="w-full h-full">
             {/* <AudioPlayer /> */}
-            <div className="border-2 border-slate-300 rounded-xl p-1 m-1">
+            <div className="flex justify-center">
               {" "}
-              <div
-                className="float-right text-slate-200 px-1 hover:text-slate-400 cursor-pointer"
-                onClick={() => {
-                  alert("tooltips in progress ");
-                }}
-              >
-                (d)
-              </div>
               <Tipsbox
                 chosenCard={chosenCard}
                 tips={tips}
                 cardsRemaining={cardsRemaining}
                 finalCard={finalCard}
               />
+              <div
+                className="text-slate-200 text-center hover:text-slate-400 cursor-pointer rounded-full border-[3px] border-slate-600 hover:bg-slate-400 h-fit p-0.5"
+                onClick={() => {
+                  alert("tooltips in progress ");
+                }}
+              >
+                ❔
+              </div>
             </div>
           </div>
           <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
@@ -132,7 +132,7 @@ export default function Home() {
         />
       </main>
       <footer className="my-2 text-center transition-colors duration-200">
-        <div className="">
+        {/* <div className="">
           <ul className="flex flex-row justify-between px-5 sm:text-xl">
             <li className="flex">
               <a className="text-blue-200 hover:bg-blue-600" href="/">
@@ -159,7 +159,7 @@ export default function Home() {
               <a href="/kickstart">Kickstart</a>
             </li>
           </ul>
-        </div>
+        </div> */}
         <div className="flex flex-row justify-around">
           <ZoomSelection />
           <HelpTips />

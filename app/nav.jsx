@@ -51,7 +51,7 @@ export default function Nav({
         isNewLevel ? "bg-slate-600" : "bg-slate-500"
       }  rounded text-slate-100`}
     >
-      <div className="flex space-x-5 justify-between items-center mx-5 mb-2 h-14">
+      <div className="flex space-x-5 justify-between items-center mx-5 mb-1 h-14">
         {/* conditionally render logo or chosen card */}
         {!cardChosen ? (
           <Image

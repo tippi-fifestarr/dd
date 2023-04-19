@@ -18,11 +18,11 @@ export default function Tipsbox({
     console.log(cardsRemaining);
   }, [cardsRemaining]);
   return (
-    <div className="max-h-40">
+    <div className="">
       {!isChosen ? (
         // for each tip in tips, render a tooltip
         <div
-          className={`bg-slate-200 bg-opacity-20 rounded-xl items-center text-center p-1 mx-4 gap-1 m-1 flex flex-col-reverse`}
+          className={`w-fit bg-slate-200 bg-opacity-20 rounded-xl items-center p-1 gap-1 mx-2 mb-1 flex flex-col-reverse`}
         >
           <div>
             {tips.map((tip) => (
@@ -37,32 +37,32 @@ export default function Tipsbox({
           <div
             className={`text-xs md:text-sm lg:text-base text-slate-200 md:p-0.5 lg:p-1`}
           >
-            🤩 double click to choose a card. begin! 🤩
+            🤩 double click to choose a card. begin!
           </div>
           <div
             className={`text-xs md:text-sm lg:text-base text-slate-200 md:p-0.5 lg:p-1`}
           >
-            😉 single click to view. welcome to dadeuce! 🤩
+            😉 single click to view. welcome to dadeuce!
           </div>
         </div>
       ) : isChosen ? (
         <div
-          className={`bg-slate-200 bg-opacity-20 rounded-xl items-center text-center p-1 mx-4 gap-1 m-1`}
+          className={`w-fit bg-slate-200 bg-opacity-20 rounded-xl items-center p-1 gap-1 m-1`}
         >
           {/* <h1 className="font-inter"> - make the tooltips :star_struck: 🤩 </h1> */}
           <div
             className={`text-xs md:text-base lg:text-lg text-slate-200 p-0.5 md:p-1 lg:p-2`}
           >
-            ❤️‍🔥 click card to examine, ask y/n questions! ❤️‍🔥
+            ❤️‍🔥 click card to examine, ask y/n questions!
           </div>
           <div
             className={`text-xs md:text-base lg:text-lg text-slate-200 p-0.5 md:p-1 lg:p-2`}
           >
-            🤩 now, you can double click to "flip" a card. Eliminate! 🤩
+            🤩 now, you can double click to "flip" a card. Eliminate!
           </div>
           <div className="text-xs md:text-base lg:text-lg text-slate-200 p-0.5 md:p-1 lg:p-2">
             {cardsRemaining >= 18
-              ? `🤩 You've chosen ${chosenCard.name}, see? 🤩`
+              ? `🔍 You've chosen ${chosenCard.name}, see?`
               : cardsRemaining >= 14
               ? `${cardsRemaining} cards remaining`
               : cardsRemaining >= 10

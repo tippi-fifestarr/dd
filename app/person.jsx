@@ -23,18 +23,18 @@ export default function Person({
   };
 
   return (
-    <div className="bg-slate-700 bg-opacity-30 rounded-md h-16 w-16 md:h-24 md:w-24 md:p-0.5 xl:p-1">
+    <div className="h-16 w-16 md:h-[90px] md:w-[90px]">
       {/* <h1>{name}</h1> */}
       {/* <p>oh, from {known_for}, right?</p> */}
       {/* <Link className="relative h-16" href={`/about`}> */}
-      <div className="relative flex align-middle justify-center overflow-hidden aspect-square">
+      <div className="relative flex items-center justify-center aspect-square">
         <Image
           src={image}
           alt={`image of ${name}`}
           // width={360}
           // height={360}
           fill
-          className={`w-full h-full object-cover my-0.5 rounded-md focus:outline-none focus:ring focus:ring-violet-300 hover:border-solid active:border-red-700  hover:border-2 duration-500 ${
+          className={`items-center w-full h-full object-cover my-0.5 rounded-md focus:outline-none focus:ring focus:ring-violet-300 hover:border-solid active:border-red-700  hover:border-2 duration-500 ${
             flippedCards && flippedCards.includes(name) ? "blur-sm" : ""
           }`}
           // className="absolute h-full w-full object-cover rounded-md"

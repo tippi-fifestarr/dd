@@ -125,7 +125,6 @@ export default function Cards({
                 handleClick={handleClick}
                 handleDoubleClick={handleDoubleClick}
                 isNewLevel={isNewLevel}
-                className="flex"
                 person={person}
                 setChosenCard={setChosenCard}
                 imagePath={imagePath}
@@ -137,8 +136,8 @@ export default function Cards({
     </div>
   ) : (
     <div className="flex flex-col">
-      <div className="border-slate-200 border-2 rounded-lg px-1 mx-1 sm:px-2 sm:mx-2 sm:py-1 lg:px-5">
-        <div className="grid grid-cols-5">
+      <div className="flex items-center justify-center px-1 mx-1 sm:px-2 sm:mx-2 sm:py-1 lg:px-5">
+        <div className="grid grid-cols-5 max-w-lg place-content-center  border-slate-200 border-2 rounded-lg p-1 md:p-2">
           {people.map((person) => (
             <div
               key={person.id}

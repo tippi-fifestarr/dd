@@ -54,11 +54,11 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ## Weird Bugs and Questions
 
-1. sometimes the contacts page fetch gets stuck in an infinite loop, is it because of the useEffect dependency array?
-2. tooltips not showing up when passed as props
+1. ~~sometimes the contacts page fetch gets stuck in an infinite loop, is it because of the useEffect dependency array?~~
+2. ~~tooltips not showing up when passed as props~~
 3. whats the best way to organize this mess?
 4. whats the best way to have the tooltips aware of certain state (has examined 2 cards, has chosen a card, has eliminated 3 cards, clicks "give me a tip" link, two cards remaining, last card)?
-5. music doesn't work
+5. ~~music doesn't work~~
 6. https://www.npmjs.com/package/eslint-plugin-react-hooks
 
 ## NextJS
