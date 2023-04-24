@@ -9,15 +9,15 @@ export const Constants = {
   songs: [
     {
       name: "song0",
-      src: "./audio/song0.mp3",
+      src: "../audio/song0.mp3",
     },
     {
       name: "song1",
-      src: "/music/song1.mp3",
+      src: "../audio/song1.mp3",
     },
     {
       name: "song2",
-      src: "/music/song2.mp3",
+      src: "../audio/song2.mp3",
     },
   ],
   sfx: [

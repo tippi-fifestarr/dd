@@ -1,4 +1,6 @@
+import React, { useState } from "react";
 import Image from "next/image";
+import { useSound } from "use-sound";
 
 const StartModal = ({
   modalImage,
@@ -6,19 +8,56 @@ const StartModal = ({
   setModalOpen,
   modalType,
   setModalType,
+  songs,
+  volume,
+  setVolume,
+  isMuted,
 }) => {
+  const [playSong0, { stop: stopSong0 }] = useSound(songs[0].src, {
+    volume: isMuted ? 0 : 0.69,
+  });
+  const [playSong1, { stop: stopSong1 }] = useSound(songs[1].src, {
+    volume: isMuted ? 0 : volume,
+  });
+
   const handleX = () => {
     setModalOpen(false);
-    // can handle start music
   };
 
   const handlePlay = () => {
     setModalType("rules");
+    playSong0();
   };
 
   const handleHelp = () => {
     setModalType("help");
+    stopSong0();
+    playSong1();
   };
+
+  const handleShuffleAndStart = () => {
+    stopSong0();
+    playSong1();
+    setModalOpen(false);
+  };
+
+  const handleVolumeChange = (e) => {
+    setVolume(e.target.value);
+  };
+
+  // Add the volume slider in the "rules" modal
+  const volumeSlider = (
+    <div>
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value={volume}
+        onChange={handleVolumeChange}
+      />
+    </div>
+  );
 
   return (
     <>
@@ -115,8 +154,9 @@ const StartModal = ({
             >
               ...click for more help
             </p>
+            {volumeSlider}
             <button
-              onClick={handleX}
+              onClick={handleShuffleAndStart}
               className="bg-orange-600 hover:bg-orange-700 text-slate-50 font-bold py-2 px-4 rounded m-3"
             >
               shuffle and start

@@ -36,7 +36,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] add zoom fullscreen view (see contacts page)
 - [x] Click to flip / eliminate cards
 - [x] start modal with instructions and button
-- [ ] Add music onload with toggle
+- [x] Add music onload with toggle
 - [x] Sound fx toggle
 - [x] Contact page
 - [ ] GPT kickstart page (web3 donate button)

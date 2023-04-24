@@ -15,7 +15,7 @@ import StartModal from "./startModal";
 export default function Home() {
   // music related state
   const [selectedSongIndex, setSelectedSongIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
   const [sfxIndex, setSfxIndex] = useState(0);
   const [volume, setVolume] = useState(0.69);
 
@@ -56,6 +56,12 @@ export default function Home() {
     // reset the cards to the initial state
     setNewLevel(true);
     console.log("first");
+  };
+
+  const handleHelper = () => {
+    console.log("helper clicked");
+    setModalType("help");
+    setModalOpen(true);
   };
 
   useEffect(() => {
@@ -162,24 +168,27 @@ export default function Home() {
         </div> */}
         <div className="flex flex-row justify-around">
           <ZoomSelection />
-          <HelpTips />
+          <HelpTips handleHelper={handleHelper} />
           {/* <button className="z-10 text-slate-200 bg-slate-600 rounded-lg hover:bg-slate-300 transition-colors duration-200 p-1">
             Sound on/off 🔈slider
           </button> */}
           <Sound
             isMuted={isMuted}
             setIsMuted={setIsMuted}
-            sfx={Constants.sfx[sfxIndex]}
             volume={volume}
             setVolume={setVolume}
           />
         </div>
         <StartModal
           modalImage={"/images/dadeuce.png"}
-          setModalType={setModalType}
-          modalType={modalType}
           modalOpen={modalOpen}
           setModalOpen={setModalOpen}
+          modalType={modalType}
+          setModalType={setModalType}
+          volume={volume}
+          songs={songs}
+          setVolume={setVolume}
+          isMuted={isMuted}
         />
       </footer>
     </>
