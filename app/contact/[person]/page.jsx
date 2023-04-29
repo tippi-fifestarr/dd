@@ -5,7 +5,7 @@ export default async function ContactPerson({ params }) {
   const { person } = params;
   const imagePath = "http://image.tmdb.org/t/p/original";
   const data = await fetch(
-    `https://api.themoviedb.org/3/person/${person}?api_key=${process.env.TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/person/${person}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
   );
   const res = await data.json();
   console.log(res);

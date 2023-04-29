@@ -35,15 +35,16 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] navbar logo replaced with chosen card
 - [x] add zoom fullscreen view (see contacts page)
 - [x] Click to flip / eliminate cards
-- [ ] Add music onload with toggle
-- [ ] Sound fx toggle
+- [x] start modal with instructions and button
+- [x] Add music onload with toggle
+- [x] Sound fx toggle
 - [x] Contact page
 - [ ] GPT kickstart page (web3 donate button)
 - [ ] Create all the 25 cards in DaDeuce Deck
 - [x] responsive tooltips
 - [x] tooltips know state of the users flow in game
 - [ ] (crossing out and eventually replacing the tips to stay relevant)
-- [ ] Allow user choice (by navigating to page) of two "Decks"
+- [ ] Allow user choice of two "Decks" (easter egg?) on start
 - [x] Use Next/fonts the right way
 - [x] Movie Database API
 - [ ] Totally matches or improves the designs usability and delightfulness
@@ -53,11 +54,11 @@ https://developers.themoviedb.org/3/getting-started/introduction
 
 ## Weird Bugs and Questions
 
-1. sometimes the contacts page fetch gets stuck in an infinite loop, is it because of the useEffect dependency array?
-2. tooltips not showing up when passed as props
+1. ~~sometimes the contacts page fetch gets stuck in an infinite loop, is it because of the useEffect dependency array?~~
+2. ~~tooltips not showing up when passed as props~~
 3. whats the best way to organize this mess?
 4. whats the best way to have the tooltips aware of certain state (has examined 2 cards, has chosen a card, has eliminated 3 cards, clicks "give me a tip" link, two cards remaining, last card)?
-5. music doesn't work
+5. ~~music doesn't work~~
 6. https://www.npmjs.com/package/eslint-plugin-react-hooks
 
 ## NextJS
