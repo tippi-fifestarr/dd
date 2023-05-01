@@ -1,8 +1,8 @@
-// "use client";
 import "./globals.css";
 import Image from "next/image";
 import Head from "./head";
 import { Gorditas, Oswald, Frijole, Island_Moments } from "next/font/google";
+import ClientLayout from "./clientLayout";
 
 export const gorditas = Gorditas({
   subsets: ["latin"],
@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head />
       <body className="bg-slate-900">
-        {children /* render the children  */}
+        <ClientLayout>{children /* render the children  */}</ClientLayout>
       </body>
     </html>
   );

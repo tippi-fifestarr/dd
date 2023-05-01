@@ -1,10 +1,18 @@
 "use client";
 import Image from "next/image";
-import placeholder from "../public/images/dadeuce.png";
+import { useEffect } from "react";
 
-export default function CardDetail({ selectedCard, cardSelected }) {
+export default function CardDetail({
+  selectedCard,
+  cardSelected,
+  getContractMeta,
+}) {
   // render the card detail
   let imagePath = "http://image.tmdb.org/t/p/original";
+  useEffect(() => {
+    getContractMeta();
+  }, []);
+
   return (
     <div className="h-full px-2">
       {/* display details of selected card, larger image, person name, knownfor, other stats */}
@@ -14,7 +22,7 @@ export default function CardDetail({ selectedCard, cardSelected }) {
             <Image
               src={
                 !cardSelected
-                  ? placeholder
+                  ? "/images/dadeuce.png"
                   : imagePath + selectedCard.profile_path
               }
               // src={chosenCard} // image of selected card

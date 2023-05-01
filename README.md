@@ -41,6 +41,10 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] Contact page
 - [ ] GPT kickstart page (web3 donate button)
 - [ ] Create all the 25 cards in DaDeuce Deck
+- [ ] Connect wallet
+- [ ] Check Access Key
+- [ ] Mint Access Key
+- [ ] Mint OG Default Deck
 - [x] responsive tooltips
 - [x] tooltips know state of the users flow in game
 - [ ] (crossing out and eventually replacing the tips to stay relevant)
@@ -60,6 +64,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 4. whats the best way to have the tooltips aware of certain state (has examined 2 cards, has chosen a card, has eliminated 3 cards, clicks "give me a tip" link, two cards remaining, last card)?
 5. ~~music doesn't work~~
 6. https://www.npmjs.com/package/eslint-plugin-react-hooks
+7. Cannot find module '@thirdweb-dev/wallets'
 
 ## NextJS
 

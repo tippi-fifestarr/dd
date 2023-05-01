@@ -1,5 +1,5 @@
 // import Tooltips from "../tipsbox";
-import Cards from "../cardsContact";
+import Cards from "../components/cardsContact";
 
 export default async function ContactPerson() {
   return (

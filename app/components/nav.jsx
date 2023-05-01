@@ -1,9 +1,10 @@
 "use client";
-import { gorditas } from "./layout";
+import { gorditas } from "../layout";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import useSound from "use-sound";
-import { Constants } from "./CONSTANTS";
+import { Constants } from "../utils/CONSTANTS";
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 export default function Nav({
   chosenCard,
@@ -82,7 +83,8 @@ export default function Nav({
           onClick={handleSound}
           className={`text-2xl ${gorditas.className} font-bold hover:underline`}
         >
-          DaDeuce!?
+          {/* DD */}
+          DaDeuce!? <ConnectWallet />
         </h1>
 
         <Image

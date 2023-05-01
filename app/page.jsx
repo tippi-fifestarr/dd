@@ -1,16 +1,16 @@
 "use client";
-import Nav from "./nav";
+import Nav from "./components/nav";
 // import Tooltips from "./tooltips";
-import Cards from "./cards";
+import Cards from "./components/cards";
 import { useState, useEffect } from "react";
-import HelpTips from "./helpTips";
-import ZoomSelection from "./zoomSelection";
-import { gorditas, oswald, frijole, islandMoments } from "./layout";
-import Tipsbox from "./tipsbox";
-import CardDetail from "./cardDetail";
-import { Constants } from "./CONSTANTS";
-import Sound from "./sound";
-import StartModal from "./startModal";
+import HelpTips from "./components/helpTips";
+import ZoomSelection from "./components/zoomSelection";
+import Tipsbox from "./components/tipsbox";
+import CardDetail from "./components/cardDetail";
+import { Constants } from "./utils/CONSTANTS";
+import Sound from "./components/sound";
+import StartModal from "./components/startModal";
+import { getContractMeta } from "./utils/thirdweb";
 
 export default function Home() {
   // music related state
@@ -28,6 +28,15 @@ export default function Home() {
   const [finalCard, setFinalCard] = useState({});
   const [modalType, setModalType] = useState("start");
   const [modalOpen, setModalOpen] = useState(true);
+  const [contractMeta, setContractMeta] = useState({});
+
+  useEffect(() => {
+    console.log("use effect new level?:", isNewLevel);
+    getContractMeta().then((metadata) => {
+      console.log("metadata", metadata);
+      setContractMeta(metadata);
+    });
+  }, [isNewLevel]);
 
   const songs = Constants.songs;
 
@@ -64,10 +73,6 @@ export default function Home() {
     setModalOpen(true);
   };
 
-  useEffect(() => {
-    console.log("use effect new level?:", isNewLevel);
-  }, [isNewLevel]);
-
   const tips = [
     // "take turns asking yes/no questions to dadeuce!",
     "give me a tip, send to wingbird.eth",
@@ -80,7 +85,6 @@ export default function Home() {
   return (
     <>
       {/* <Heads totalClicks={totalClicks} /> */}
-
       <main>
         <Nav
           chosenCard={chosenCard}
@@ -115,7 +119,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <CardDetail selectedCard={selectedCard} cardSelected={cardSelected} />
+          <CardDetail
+            selectedCard={selectedCard}
+            cardSelected={cardSelected}
+            contractMeta={contractMeta}
+          />
         </div>
         <Cards
           chosenCard={chosenCard}
@@ -189,6 +197,7 @@ export default function Home() {
           songs={songs}
           setVolume={setVolume}
           isMuted={isMuted}
+          contractMeta={contractMeta}
         />
       </footer>
     </>
