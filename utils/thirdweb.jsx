@@ -33,17 +33,17 @@ async function checkAccess() {
   return response;
 }
 
-async function claimAccessKey() {
-  const sdk = new ThirdwebSDK("mumbai");
-  const contract = await sdk.getContract(
-    "0xe003E4487f62cf8fa6a84C517293780b85aedb86"
-  );
-  const tokenId = 0; // the id of the NFT you want to claim
-  const quantity = 1; // how many NFTs you want to claim
+// async function claimAccessKey() {
+//   const sdk = new ThirdwebSDK("mumbai");
+//   const contract = await sdk.getContract(
+//     "0xe003E4487f62cf8fa6a84C517293780b85aedb86"
+//   );
+//   const tokenId = 0; // the id of the NFT you want to claim
+//   const quantity = 1; // how many NFTs you want to claim
 
-  const tx = await contract.erc1155.claim(tokenId, quantity);
-  const receipt = tx.receipt; // the transaction receipt
-  return receipt;
-}
+//   const tx = await contract.erc1155.claim(tokenId, quantity);
+//   const receipt = tx.receipt; // the transaction receipt
+//   return receipt;
+// }
 
-module.exports = { getContractMeta, checkAccess, claimAccessKey };
+module.exports = { getContractMeta, checkAccess };

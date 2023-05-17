@@ -40,11 +40,12 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] Sound fx toggle
 - [x] Contact page
 - [ ] GPT kickstart page (web3 donate button)
-- [ ] Create all the 25 cards in DaDeuce Deck
+- [ ] Create all the 20 cards in DaDeuce Deck
 - [ ] Connect wallet
 - [ ] Check Access Key
 - [ ] Mint Access Key
 - [ ] Mint OG Default Deck
+- [ ] Voting function?
 - [x] responsive tooltips
 - [x] tooltips know state of the users flow in game
 - [ ] (crossing out and eventually replacing the tips to stay relevant)

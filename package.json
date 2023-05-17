@@ -12,13 +12,18 @@
     "@thirdweb-dev/react": "^3.11.8",
     "@thirdweb-dev/sdk": "^3.10.11",
     "@thirdweb-dev/wallets": "^0.2.16",
+    "@web3modal/ethereum": "2.1.1",
+    "@web3modal/react": "2.1.1",
+    "encoding": "^0.1.13",
     "ethers": "^5.7.2",
-    "next": "^13.3.2",
+    "lokijs": "^1.5.12",
+    "next": "^13.3.4",
+    "pino-pretty": "^10.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
-    "tone": "^14.7.77",
-    "use-sound": "^4.0.1"
+    "use-sound": "^4.0.1",
+    "wagmi": "0.11.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

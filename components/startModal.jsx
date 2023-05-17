@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { useSound } from "use-sound";
-import { checkAccess, claimAccessKey } from "../utils/thirdweb";
+import { checkAccess } from "../utils/thirdweb";
+// import { ThirdwebNftMedia, useContract, useNFT } from "@thirdweb-dev/react";
 
 const StartModal = ({
   modalImage,
@@ -40,7 +41,7 @@ const StartModal = ({
   const handleShuffleAndStart = () => {
     stopSong0();
     playSong1();
-    claimAccessKey();
+    // claimAccessKey();
     setModalOpen(false);
   };
 
@@ -61,6 +62,11 @@ const StartModal = ({
       />
     </div>
   );
+
+  // // Connect to your NFT contract
+  // const { contract } = useContract("{{contract_address}}");
+  // // Load the NFT metadata from the contract using a hook
+  // const { data: nft, isLoading, error } = useNFT(contract, "0");
 
   return (
     <>
@@ -87,6 +93,13 @@ const StartModal = ({
                 <h2 className="text-xl sm:text-2xl p-1 sm:p-2">
                    Can you read my mind?{" "}
                 </h2>
+                {/* {isLoading ? (
+                  <div>Loading...</div>
+                ) : error || !nft ? (
+                  <div>NFT not found</div>
+                ) : (
+                  <ThirdwebNftMedia metadata={nft.metadata} />
+                )} */}
                 <p className=" text-center p-1 md:p-2">
                   Yes or no questions, internet, <br /> and a fun friend are all
                   you need <br /> to play this crazy game; a <br /> random card
