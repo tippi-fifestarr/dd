@@ -40,11 +40,12 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] Sound fx toggle
 - [x] Contact page
 - [ ] GPT kickstart page (web3 donate button)
-- [ ] Create all the 25 cards in DaDeuce Deck
+- [x] Access Key & Gated Access
+- [x] Create all the 20 cards in Default Deck
 - [x] responsive tooltips
 - [x] tooltips know state of the users flow in game
 - [ ] (crossing out and eventually replacing the tips to stay relevant)
-- [ ] Allow user choice of two "Decks" (easter egg?) on start
+- [x] Allow user choice of two "Decks" on start (Demo Celebs and Default Deck)
 - [x] Use Next/fonts the right way
 - [x] Movie Database API
 - [ ] Totally matches or improves the designs usability and delightfulness
