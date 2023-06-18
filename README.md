@@ -50,7 +50,7 @@ https://developers.themoviedb.org/3/getting-started/introduction
 - [x] Movie Database API
 - [ ] Totally matches or improves the designs usability and delightfulness
 - [ ] 5 step img2img "having fun" or "winner" for the chosen card and "loser" for the guessed card?
-- [ ] Chat function / rooms
+- [x] Chat function / rooms
 - [ ] Play against chat gpt (chat function + ai)
 
 ## Weird Bugs and Questions
